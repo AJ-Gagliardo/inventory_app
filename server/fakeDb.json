@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "itemname": "Samsung Galaxy S21",
+    "itemtype": "smartphone",
+    "brand": "Samsung",
+    "price": 799,
+    "stock": 25
+  },
+  {
+    "id": 2,
+    "itemname": "Samsung Galaxy Tab S7",
+    "itemtype": "tablet",
+    "brand": "Samsung",
+    "price": 649,
+    "stock": 10
+  },
+  {
+    "id": 3,
+    "itemname": "Dell XPS 13",
+    "itemtype": "laptop",
+    "brand": "Dell",
+    "price": 1199,
+    "stock": 8
+  },
+  {
+    "id": 4,
+    "itemname": "PlayStation 5",
+    "itemtype": "gaming",
+    "brand": "Sony",
+    "price": 499,
+    "stock": 20
+  },
+  {
+    "id": 5,
+    "itemname": "Logitech G502 Mouse",
+    "itemtype": "accessory",
+    "brand": "Logitech",
+    "price": 50,
+    "stock": 30
+  },
+  {
+    "id": 6,
+    "itemname": "iPhone 13 Pro",
+    "itemtype": "smartphone",
+    "brand": "Apple",
+    "price": 999,
+    "stock": 15
+  },
+  {
+    "id": 7,
+    "itemname": "Nintendo Switch",
+    "itemtype": "gaming",
+    "brand": "Nintendo",
+    "price": 299,
+    "stock": 12
+  }
+]
