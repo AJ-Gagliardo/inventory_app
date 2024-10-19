@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json()); //req.body
 
 app.get("/", (req, res) => {
+  console.log("home");
   res.send("home");
 });
 
@@ -25,6 +26,17 @@ app.post("/create", async (req, res) => {
     );
 
     res.json(newItem.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.get("/allItems", async (req, res) => {
+  try {
+    // console.log("requesting all items from the inventory");
+    const allItems = await pool.query("SELECT * FROM items;");
+    // console.log(allItems.rows);
+    res.json(allItems.rows);
   } catch (err) {
     console.error(err.message);
   }

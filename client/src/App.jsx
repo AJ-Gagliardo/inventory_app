@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import "./App.css";
 import Create from "./components/create";
+import ListItems from "./components/ListItems";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <Create />
+      <ListItems />
     </>
   );
 }
