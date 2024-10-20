@@ -31,6 +31,10 @@ function ListItems() {
             <p className="">{item.brand}</p>
             <p className="font-bold">${item.price}</p>
             <p className="">{item.stock} units available</p>
+            <div className="">
+              <button className="my-2 mx-2 w-24">Edit</button>
+              <button className="w-24">Delete</button>
+            </div>
           </div>
         ))}
       </div>
