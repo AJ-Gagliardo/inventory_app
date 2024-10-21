@@ -16,6 +16,7 @@ function ListItems() {
     }
   };
 
+  // to mount the items
   useEffect(() => {
     getAllItems();
   }, []);
