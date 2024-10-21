@@ -42,6 +42,46 @@ app.get("/allItems", async (req, res) => {
   }
 });
 
+app.get("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(`testing getting item with id: ${id}`);
+    const itemById = await pool.query("SELECT * FROM items where id = $1", [
+      id,
+    ]);
+    res.send(itemById.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.delete("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteItem = await pool.query("DELETE FROM items WHERE id = $1", [
+      id,
+    ]);
+    res.json("item was deleted");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.put("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { itemname, itemtype, brand, price, stock } = req.body;
+    const updateItem = await pool.query(
+      "UPDATE items SET itemname = $1, itemtype = $2, brand = $3, price = $4, stock = $5 WHERE id = $6",
+      [itemname, itemtype, brand, price, stock, id]
+    );
+
+    res.json("item updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 app.listen(fport, () => {
   console.log(`listening to port ${fport}`);
 });
