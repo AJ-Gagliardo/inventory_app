@@ -1,19 +1,30 @@
 import { useState } from "react";
 
-function Create() {
-  const [itemName, setItemName] = useState("");
-  const [itemtype, setItemType] = useState("");
-  const [brand, setBrand] = useState("");
-  const [price, setPrice] = useState("");
-  const [stock, setStock] = useState("");
+function Create({ existingItem, isEdit }) {
+  const [itemName, setItemName] = useState(
+    existingItem ? existingItem.itemname : ""
+  );
+  const [itemtype, setItemType] = useState(
+    existingItem ? existingItem.itemtype : ""
+  );
+  const [brand, setBrand] = useState(existingItem ? existingItem.brand : "");
+  const [price, setPrice] = useState(existingItem ? existingItem.price : "");
+  const [stock, setStock] = useState(existingItem ? existingItem.stock : "");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
       const body = { itemname: itemName, itemtype, brand, price, stock };
       // { itemName: itemName, price: price, stock: stock };
-      const response = await fetch("http://localhost:3000/create", {
-        method: "POST",
+
+      const requestUrl = isEdit
+        ? `http://localhost:3000/items/${existingItem.id}`
+        : "http://localhost:3000/create";
+
+      const method = isEdit ? "PUT" : "POST";
+
+      const response = await fetch(requestUrl, {
+        method: method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
@@ -34,6 +45,7 @@ function Create() {
           <h2>Item Name</h2>
           <input
             type="text"
+            value={itemName}
             onChange={(e) => setItemName(e.target.value)}
             className="border border-spacing-1 border-slate-600 px-1"
           />
@@ -41,6 +53,7 @@ function Create() {
           <select
             className="border border-spacing-1 border-slate-600 px-1"
             name="itemtype"
+            value={itemtype}
             onChange={(e) => setItemType(e.target.value)}
           >
             <option value="smartphone">SmartPhone</option>
@@ -54,6 +67,7 @@ function Create() {
           <input
             type="text"
             className="border border-spacing-1 border-slate-600 px-1"
+            value={brand}
             onChange={(e) => {
               setBrand(e.target.value);
             }}
@@ -62,12 +76,14 @@ function Create() {
           <input
             className="border border-spacing-1 border-slate-600 px-1"
             type="number"
+            value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
           <h2>Stock</h2>
           <input
             className="border border-spacing-1 border-slate-600 px-1"
             type="number"
+            value={stock}
             onChange={(e) => setStock(e.target.value)}
           />
           <button className="col-span-2 my-2 hover:scale-110 bg-slate-300">

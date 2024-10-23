@@ -6,6 +6,7 @@ import Create from "./components/create";
 import ListItems from "./components/ListItems";
 import NavBar from "./components/NavBar";
 import ItemDetail from "./components/ItemDetail";
+import EditItem from "./components/EditItem";
 // import { Router } from "react-router-dom";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<ListItems />} />
         <Route path="/create" element={<Create />} />
         <Route path="items/:id" element={<ItemDetail />} />
+        <Route path="edit/:id" element={<EditItem />} />
       </Routes>
     </Router>
   );

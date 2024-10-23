@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { redirect } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 function ListItems() {
   const [items, setItems] = useState([]);
@@ -46,7 +46,9 @@ function ListItems() {
             <p className="font-bold">${item.price}</p>
             <p className="">{item.stock} units available</p>
             <div className="">
-              <button className="my-2 mx-2 w-24">Edit</button>
+              <Link to={`/edit/${item.id}`}>
+                <button className="my-2 mx-2 w-24">Edit</button>
+              </Link>
               <button className="w-24" onClick={() => deleteItem(item.id)}>
                 Delete
               </button>
