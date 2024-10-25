@@ -5,7 +5,7 @@ function Create({ existingItem, isEdit }) {
     existingItem ? existingItem.itemname : ""
   );
   const [itemtype, setItemType] = useState(
-    existingItem ? existingItem.itemtype : ""
+    existingItem ? existingItem.itemtype : "Smartphone"
   );
   const [brand, setBrand] = useState(existingItem ? existingItem.brand : "");
   const [price, setPrice] = useState(existingItem ? existingItem.price : "");
