@@ -52,16 +52,23 @@ function ListItems() {
       <h1>All Items</h1>
       <div className="grid grid-cols-3 gap-4 mt-6">
         {items.map((item) => (
-          <div key={item.id} className="flex flex-col justify-between  my-4">
-            <p className="sm:text-2xl text-sm font-bold min-h-8 sm:min-h-6 truncate">
-              {item.itemname}
-            </p>
-            <img src={imgType[item.itemtype]}>{console.log(item.itemtype)}</img>
+          <div
+            key={item.id}
+            className="flex flex-col justify-between sm:place-items-center  my-4"
+          >
+            <Link to={`/items/${item.id}`}>
+              <p className="sm:text-2xl text-sm font-bold min-h-8 sm:min-h-6 truncate">
+                {item.itemname}
+              </p>
+              <img className="w-60" src={imgType[item.itemtype]}>
+                {console.log(item.itemtype)}
+              </img>
 
-            <p className="">{item.itemtype}</p>
-            <p className="">{item.brand}</p>
-            <p className="font-bold">${item.price}</p>
-            <p className="">{item.stock} units available</p>
+              <p className="text-slate-600">{item.itemtype}</p>
+              <p className="text-slate-800">{item.brand}</p>
+              <p className="text-slate-800 font-bold">${item.price}</p>
+              <p className="text-slate-800">{item.stock} units available</p>
+            </Link>
             <div className="">
               <Link to={`/edit/${item.id}`}>
                 <button className="my-2 mx-2 w-24 bg-blue-500 text-white p-1 rounded">
