@@ -50,11 +50,11 @@ function ListItems() {
   return (
     <>
       <h1>All Items</h1>
-      <div className="grid grid-cols-3 gap-4 mt-6">
+      <div className="grid grid-cols-3 gap-4 mt-6 align-middle justify-between">
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex flex-col justify-between sm:place-items-center  my-4"
+            className="flex flex-col justify-between  sm:place-items-center  my-4"
           >
             <Link to={`/items/${item.id}`}>
               <p className="sm:text-2xl text-sm font-bold min-h-8 sm:min-h-6 truncate">
@@ -71,12 +71,12 @@ function ListItems() {
             </Link>
             <div className="">
               <Link to={`/edit/${item.id}`}>
-                <button className="my-2 mx-2 w-24 bg-blue-500 text-white p-1 rounded">
+                <button className="my-2 mx-2 w-24 border-blue-400 p-1 rounded">
                   Edit
                 </button>
               </Link>
               <button
-                className="w-24 bg-red-400 text-white p-1 rounded"
+                className="w-24 border-red-400  p-1 rounded"
                 onClick={() => deleteItem(item.id)}
               >
                 Delete
@@ -84,6 +84,12 @@ function ListItems() {
             </div>
           </div>
         ))}
+        <Link
+          className="my-auto h-2/3 align-middle place-items-center -center"
+          to="/create"
+        >
+          <button className="bg-blue-400 text-white">Add Item +</button>
+        </Link>
       </div>
     </>
   );

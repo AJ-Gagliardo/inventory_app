@@ -46,7 +46,7 @@ function ItemDetail() {
       <p>{item.stock} units available</p>
       <div className="">
         <Link to={`/edit/${item.id}`}>
-          <button className="my-2 mx-2 w-24 bg-blue-500 text-white p-1 rounded">
+          <button className="my-2 mx-2 w-24 bg-blue-400 text-white p-1 rounded">
             Edit
           </button>
         </Link>
