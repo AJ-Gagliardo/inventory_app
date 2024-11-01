@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import Create from "./components/create";
+import Create from "./components/Create";
 import ListItems from "./components/ListItems";
 import NavBar from "./components/NavBar";
 import ItemDetail from "./components/ItemDetail";
