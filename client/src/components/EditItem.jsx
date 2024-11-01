@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Create from "./create";
+import Create from "./Create";
 import { useParams } from "react-router-dom";
 
 function EditItem() {
