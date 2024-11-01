@@ -1,0 +1,13 @@
+{
+  "name": "inventory_app",
+  "version": "1.0.0",
+  "description": "Inventory app using Express, Node, and React.js, PostgreSQL. Will use CRUD basics.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
