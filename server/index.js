@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 const cors = require("cors");
 const pool = require("./db");
+const path = require("path");
 
 const fport = process.env.FPORT;
 
@@ -10,10 +11,19 @@ const fport = process.env.FPORT;
 app.use(cors());
 app.use(express.json()); //req.body
 
-app.get("/", (req, res) => {
-  console.log("home");
-  res.send("home");
+//testing this part
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../client/dist", "index.html"));
 });
+
+// app.get("/", (req, res) => {
+//   console.log("home");
+//   res.send("home");
+// });
+
+// part above commented out for testing purpose
 
 app.post("/create", async (req, res) => {
   try {
