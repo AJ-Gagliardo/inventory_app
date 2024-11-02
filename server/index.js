@@ -5,7 +5,7 @@ const cors = require("cors");
 const pool = require("./db");
 const path = require("path");
 
-const port = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 //middleware
 app.use(cors());
@@ -92,6 +92,6 @@ app.put("/items/:id", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`listening to port ${port}`);
+app.listen(PORT, () => {
+  console.log(`listening to port ${PORT}`);
 });
