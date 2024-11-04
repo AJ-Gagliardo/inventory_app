@@ -12,16 +12,18 @@ app.use(cors());
 app.use(express.json()); //req.body
 
 //testing this part
-app.use(express.static(path.join(__dirname, "../client/dist")));
+// app.use(express.static(path.join(__dirname, "../client/dist")));
 
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "../client/dist", "index.html"));
-});
-
-// app.get("/", (req, res) => {
-//   console.log("home");
-//   res.send("home");
+// app.get("*", function (request, response) {
+//   response.sendFile(path.resolve(__dirname, "../client/dist", "index.html"));
 // });
+
+// end of test
+
+app.get("/", (req, res) => {
+  console.log("home");
+  res.send("home");
+});
 
 // part above commented out for testing purpose
 

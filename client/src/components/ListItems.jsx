@@ -14,6 +14,7 @@ function ListItems() {
     try {
       console.log("starting getAllItems");
       const response = await fetch("http://localhost:3000/allItems");
+      // const response = await fetch("${process.env.REACT_APP_API_URL}/allItems");
       const jsonData = await response.json();
       console.log(jsonData);
 
